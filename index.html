@@ -112,6 +112,8 @@
         const bannedNames = ['']; // Pages with 🚫 badge
         const vipNames = ['robbie']; // Pages with VIP badge
         const leaderNames = ['robbie'];
+        const wrenchNames = ['robbie'];
+        
         // Extract the NAME from the URL path and decode it
         const pathSegments = window.location.pathname.split('/').filter(segment => segment);
         let name = '???';
@@ -141,16 +143,26 @@
             document.getElementById('title').textContent = `${name} - Path Catcher`;
 
             // Show Verified silly badge if the name is in the approved list
-            if (name.toLowerCase() === 'robbie') {
-                // sillyLeaderBadge.style.display = 'inline-flex';
-                sillyLeaderBadge.style.display = 'inline-flex';
-            }
+            if (approvedUsers.includes(name.toLowerCase())) {
+                    sillyLeaderBadge.style.display = 'inline-flex';
+                }
 
             // Show Silly Leader badge if the name is 'robbie'
-            if (name.toLowerCase() === 'robbie') {
-                // sillyLeaderBadge.style.display = 'inline-flex';
-                wrenchBadge.style.display = 'inline-flex';
-            }
+            if (partnerNames.includes(name.toLowerCase())) {
+                    partnerBadge.style.display = 'inline-flex';
+                }
+
+            if (vipNames.includes(name.toLowerCase())) {
+                    vipBadge.style.display = 'inline-flex';
+                }
+
+            if (leaderNames.includes(name.toLowerCase())) {
+                    sillyLeaderBadge.style.display = 'inline-flex';
+                }
+
+            if (wrenchNames.includes(name.toLowerCase())) {
+                    wrenchBadge.style.display = 'inline-flex';
+                }
 
             // Check if the name is in the banned list
             if (bannedNames.includes(name.toLowerCase())) {
