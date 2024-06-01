@@ -84,19 +84,23 @@
             </div>
             <div id="wrench" class="badge" style="display:none;">
                 <img src="/public/img/wrench.png" alt="Site Owner Icon" width="50" height="50">
-                <span class="tooltip">Site Manager</span>
+                <span class="tooltip">Manager</span>
             </div>
             <div id="banned" class="badge" style="display:none;">
                 <img src="/public/img/banned.png" alt="Banned Account Icon" width="50" height="50">
-                <span class="tooltip">Page removed due to abuse</span>
+                <span class="tooltip">Banned due to abuse</span>
             </div>
             <div id="partner" class="badge" style="display:none;">
                 <img src="/public/img/partner.png" alt="Partnered Account Icon" width="50" height="50">
-                <span class="tooltip">Partnered page</span>
+                <span class="tooltip">Partnered</span>
             </div>
             <div id="vip" class="badge" style="display:none;">
                 <img src="/public/img/vip.png" alt="VIP Icon" width="50" height="50">
-                <span class="tooltip">VIP page</span>
+                <span class="tooltip">VIP</span>
+            </div>
+            <div id="bughunter" class="badge" style="display:none;">
+                <img src="/public/img/bughunter.png" alt="Bug Hunter Icon" width="50" height="50">
+                <span class="tooltip">Bug Hunter</span>
             </div>
         </div>
         <p id="disallowed" style="display:none;">Uh- you aren't looking for this page, right?!?!?</p>
@@ -113,6 +117,7 @@
         const vipNames = ['795']; // Pages with VIP badge
         const leaderNames = ['robbie'];
         const wrenchNames = ['robbie'];
+        const bugHunters = [''];
         
         // Extract the NAME from the URL path and decode it
         const pathSegments = window.location.pathname.split('/').filter(segment => segment);
@@ -126,11 +131,18 @@
         const badgesElement = document.getElementById('badges');
         const disallowedElement = document.getElementById('disallowed');
         const verifiedBadge = document.getElementById('verified');
+
+        // STAFF BADGES
         const sillyLeaderBadge = document.getElementById('sillyLeader');
         const wrenchBadge = document.getElementById('wrench');
+
+        // BANNED BADGE
         const bannedBadge = document.getElementById('banned');
+
+        // SPECIAL BADGES
         const partnerBadge = document.getElementById('partner');
         const vipBadge = document.getElementById('vip');
+        const hunterBadge = document.getElementById('bughunter');
 
         // Check if the name is in the disallowed list
         if (disallowedDomains.includes(name.toLowerCase())) {
@@ -167,6 +179,10 @@
             if (wrenchNames.includes(name.toLowerCase())) {
                     wrenchBadge.style.display = 'inline-flex';
                 }
+
+            if (bugHunters.includes(name.toLowerCase())) {
+                    hunterBadge.style.display = 'inline-flex';
+            }
 
             // Check if the name is in the banned list
             if (bannedNames.includes(name.toLowerCase())) {
