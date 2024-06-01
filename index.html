@@ -72,7 +72,7 @@
 </head>
 <body>
     <div id="content">
-        <h1 id="name">${name}</h1>
+        <h1 id="name">unknown</h1>
         <div id="badges">
             <div id="verified" class="badge" style="display:none;">
                 <img src="/public/img/verified.png" alt="Verified Icon" width="50" height="50">
@@ -103,97 +103,97 @@
     </div>
     
     <script>
-        // Load the badge configurations from the JSON file
-        fetch('badgeConfig.json')
-            .then(response => response.json())
-            .then(badgeConfig => {
-                const { approvedUsers, partnerNames, bannedNames, vipNames, leaderNames, wrenchNames } = badgeConfig;
+        // List of disallowed domains
+        const disallowedDomains = ['']; // Pages that return red text
+        
+        // BADGE CONFIG
+        const approvedUsers = ['robbie']; // Pages with ✅ badge
+        const partnerNames = [''] // Pages with partner badge
+        const bannedNames = ['zayne', 'zaynedrift']; // Pages with 🚫 badge
+        const vipNames = ['']; // Pages with VIP badge
+        const leaderNames = ['robbie'];
+        const wrenchNames = ['robbie'];
+        
+        // Extract the NAME from the URL path and decode it
+        const pathSegments = window.location.pathname.split('/').filter(segment => segment);
+        let name = '???';
+        if (pathSegments.length > 0) {
+            name = decodeURIComponent(pathSegments[0].replace(/%20/g, ' '));
+        }
 
-                // Extract the NAME from the URL path and decode it
-                const pathSegments = window.location.pathname.split('/').filter(segment => segment);
-                let name = '???';
-                if (pathSegments.length > 0) {
-                    name = decodeURIComponent(pathSegments[0].replace(/%20/g, ' '));
+        // Set the NAME in the HTML content
+        const nameElement = document.getElementById('name');
+        const badgesElement = document.getElementById('badges');
+        const disallowedElement = document.getElementById('disallowed');
+        const verifiedBadge = document.getElementById('verified');
+        const sillyLeaderBadge = document.getElementById('sillyLeader');
+        const wrenchBadge = document.getElementById('wrench');
+        const bannedBadge = document.getElementById('banned');
+        const partnerBadge = document.getElementById('partner');
+        const vipBadge = document.getElementById('vip');
+
+        // Check if the name is in the disallowed list
+        if (disallowedDomains.includes(name.toLowerCase())) {
+            document.getElementById('title').textContent = '404?!?!?';
+            nameElement.style.display = 'none';
+            badgesElement.style.display = 'none';
+            disallowedElement.style.display = 'block';
+        } else {
+            nameElement.textContent = name;
+            document.getElementById('title').textContent = `${name} - Path Catcher`;
+
+            // Show Verified silly badge if the name is in the approved list
+            if (approvedUsers.includes(name.toLowerCase())) {
+                    verifiedBadge.style.display = 'inline-flex';
                 }
 
-                // Set the NAME in the HTML content
-                const nameElement = document.getElementById('name');
-                const badgesElement = document.getElementById('badges');
-                const disallowedElement = document.getElementById('disallowed');
-                const verifiedBadge = document.getElementById('verified');
-                const sillyLeaderBadge = document.getElementById('sillyLeader');
-                const wrenchBadge = document.getElementById('wrench');
-                const bannedBadge = document.getElementById('banned');
-                const partnerBadge = document.getElementById('partner');
-                const vipBadge = document.getElementById('vip');
-
-                // Set the name in the name element
-                nameElement.textContent = name;
-
-                // Set the title
-                document.getElementById('title').textContent = `${name} - Path Catcher`;
-
-                // Check if the name is in the disallowed list
-                if (disallowedDomains.includes(name.toLowerCase())) {
-                    document.getElementById('title').textContent = '404?!?!?';
-                    nameElement.style.display = 'none';
-                    badgesElement.style.display = 'none';
-                    disallowedElement.style.display = 'block';
-                } else {
-                    // Show Verified silly badge if the name is in the approved list
-                    if (approvedUsers.includes(name.toLowerCase())) {
-                        verifiedBadge.style.display = 'inline-flex';
-                    }
-
-                    if (leaderNames.includes(name.toLowerCase())) {
-                        sillyLeaderBadge.style.display = 'inline-flex';
-                    }
-
-                    // Show Silly Leader badge if the name is 'robbie'
-                    if (partnerNames.includes(name.toLowerCase())) {
-                        partnerBadge.style.display = 'inline-flex';
-                    }
-
-                    if (vipNames.includes(name.toLowerCase())) {
-                        vipBadge.style.display = 'inline-flex';
-                    }
-
-                    if (leaderNames.includes(name.toLowerCase())) {
-                        sillyLeaderBadge.style.display = 'inline-flex';
-                    }
-
-                    if (wrenchNames.includes(name.toLowerCase())) {
-                        wrenchBadge.style.display = 'inline-flex';
-                    }
-
-                    // Check if the name is in the banned list
-                    if (bannedNames.includes(name.toLowerCase())) {
-                        // Show only the banned badge
-                        verifiedBadge.style.display = 'none';
-                        sillyLeaderBadge.style.display = 'none';
-                        wrenchBadge.style.display = 'none';
-                        partnerBadge.style.display = 'none';
-                        vipBadge.style.display = 'none';
-                        bannedBadge.style.display = 'inline-flex';
-                    } else {
-                        // Show other badges if not banned
-                        if (partnerNames.includes(name.toLowerCase())) {
-                            partnerBadge.style.display = 'inline-flex';
-                        }
-                        if (vipNames.includes(name.toLowerCase())) {
-                            vipBadge.style.display = 'inline-flex';
-                        }
-                    }
-
-                    // Check if the text width exceeds the screen width
-                    window.onload = () => {
-                        if (nameElement.scrollWidth > document.documentElement.clientWidth) {
-                            nameElement.textContent = '😵‍💫😵 Too many!';
-                        }
-                    };
+            if (leaderNames.includes(name.toLowerCase())) {
+                    sillyLeaderBadge.style.display = 'inline-flex';
                 }
-            })
-            .catch(error => console.error('Error loading badge configuration:', error));
+
+            // Show Silly Leader badge if the name is 'robbie'
+            if (partnerNames.includes(name.toLowerCase())) {
+                    partnerBadge.style.display = 'inline-flex';
+                }
+
+            if (vipNames.includes(name.toLowerCase())) {
+                    vipBadge.style.display = 'inline-flex';
+                }
+
+            if (leaderNames.includes(name.toLowerCase())) {
+                    sillyLeaderBadge.style.display = 'inline-flex';
+                }
+
+            if (wrenchNames.includes(name.toLowerCase())) {
+                    wrenchBadge.style.display = 'inline-flex';
+                }
+
+            // Check if the name is in the banned list
+            if (bannedNames.includes(name.toLowerCase())) {
+                // Show only the banned badge
+                verifiedBadge.style.display = 'none';
+                sillyLeaderBadge.style.display = 'none';
+                wrenchBadge.style.display = 'none';
+                partnerBadge.style.display = 'none';
+                vipBadge.style.display = 'none';
+                bannedBadge.style.display = 'inline-flex';
+            } else {
+                // Show other badges if not banned
+                if (partnerNames.includes(name.toLowerCase())) {
+                    partnerBadge.style.display = 'inline-flex';
+                }
+                if (vipNames.includes(name.toLowerCase())) {
+                    vipBadge.style.display = 'inline-flex';
+                }
+            }
+
+            // Check if the text width exceeds the screen width
+            window.onload = () => {
+                if (nameElement.scrollWidth > document.documentElement.clientWidth) {
+                    nameElement.textContent = '😵‍💫😵 Too many!';
+                }
+            };
+        }
     </script>
 </body>
 </html>
