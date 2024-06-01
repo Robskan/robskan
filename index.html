@@ -102,6 +102,10 @@
                 <img src="/public/img/bughunter.png" alt="Bug Hunter Icon" width="50" height="50">
                 <span class="tooltip">Bug Hunter</span>
             </div>
+            <div id="premium" class="badge" style="display:none;">
+                <img src="/public/img/premium.png" alt="Premium Icon" width="50" height="50">
+                <span class="tooltip">Premium User</span>
+            </div>
         </div>
         <p id="disallowed" style="display:none;">Uh- you aren't looking for this page, right?!?!?</p>
     </div>
@@ -117,7 +121,8 @@
         const vipNames = ['795']; // Pages with VIP badge
         const leaderNames = ['robbie'];
         const wrenchNames = ['robbie'];
-        const bugHunters = ['robbie'];
+        const bugHunters = [''];
+        const premiumUsers = ['robbie'];
         
         // Extract the NAME from the URL path and decode it
         const pathSegments = window.location.pathname.split('/').filter(segment => segment);
@@ -143,6 +148,7 @@
         const partnerBadge = document.getElementById('partner');
         const vipBadge = document.getElementById('vip');
         const hunterBadge = document.getElementById('bughunter');
+        const premiumBadge = document.getElementById('premium');
 
         // Check if the name is in the disallowed list
         if (disallowedDomains.includes(name.toLowerCase())) {
@@ -156,32 +162,32 @@
 
             // Show Verified silly badge if the name is in the approved list
             if (approvedUsers.includes(name.toLowerCase())) {
-                    verifiedBadge.style.display = 'inline-flex';
-                }
+                verifiedBadge.style.display = 'inline-flex';
+            }
 
             if (leaderNames.includes(name.toLowerCase())) {
-                    sillyLeaderBadge.style.display = 'inline-flex';
-                }
+                sillyLeaderBadge.style.display = 'inline-flex';
+            }
 
             // Show Silly Leader badge if the name is 'robbie'
             if (partnerNames.includes(name.toLowerCase())) {
-                    partnerBadge.style.display = 'inline-flex';
-                }
+                partnerBadge.style.display = 'inline-flex';
+            }
 
             if (vipNames.includes(name.toLowerCase())) {
-                    vipBadge.style.display = 'inline-flex';
-                }
-
-            if (leaderNames.includes(name.toLowerCase())) {
-                    sillyLeaderBadge.style.display = 'inline-flex';
-                }
+                vipBadge.style.display = 'inline-flex';
+            }
 
             if (wrenchNames.includes(name.toLowerCase())) {
-                    wrenchBadge.style.display = 'inline-flex';
-                }
+                wrenchBadge.style.display = 'inline-flex';
+            }
 
             if (bugHunters.includes(name.toLowerCase())) {
-                    hunterBadge.style.display = 'inline-flex';
+                hunterBadge.style.display = 'inline-flex';
+            }
+
+            if (premiumUsers.includes(name.toLowerCase())) {
+                premiumBadge.style.display = 'inline-flex';
             }
 
             // Check if the name is in the banned list
