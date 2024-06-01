@@ -144,6 +144,10 @@
 
             // Show Verified silly badge if the name is in the approved list
             if (approvedUsers.includes(name.toLowerCase())) {
+                    verifiedBadge.style.display = 'inline-flex';
+                }
+
+            if (leaderNames.includes(name.toLowerCase())) {
                     sillyLeaderBadge.style.display = 'inline-flex';
                 }
 
