@@ -109,9 +109,9 @@
         // BADGE CONFIG
         const approvedUsers = ['robbie']; // Pages with ✅ badge
         const partnerNames = ['robbie'] // Pages with partner badge
-        const bannedNames = ['nigger', 'nigga', 'nig']; // Pages with 🚫 badge
+        const bannedNames = ['']; // Pages with 🚫 badge
         const vipNames = ['robbie']; // Pages with VIP badge
-
+        const leaderNames = ['robbie'];
         // Extract the NAME from the URL path and decode it
         const pathSegments = window.location.pathname.split('/').filter(segment => segment);
         let name = '???';
@@ -141,8 +141,9 @@
             document.getElementById('title').textContent = `${name} - Path Catcher`;
 
             // Show Verified silly badge if the name is in the approved list
-            if (approvedUsers.includes(name.toLowerCase())) {
-                verifiedBadge.style.display = 'inline-flex';
+            if (name.toLowerCase() === 'robbie') {
+                // sillyLeaderBadge.style.display = 'inline-flex';
+                sillyLeaderBadge.style.display = 'inline-flex';
             }
 
             // Show Silly Leader badge if the name is 'robbie'
