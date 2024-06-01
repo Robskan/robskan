@@ -127,6 +127,12 @@
                 const partnerBadge = document.getElementById('partner');
                 const vipBadge = document.getElementById('vip');
 
+                // Set the name in the name element
+                nameElement.textContent = name;
+
+                // Set the title
+                document.getElementById('title').textContent = `${name} - Path Catcher`;
+
                 // Check if the name is in the disallowed list
                 if (disallowedDomains.includes(name.toLowerCase())) {
                     document.getElementById('title').textContent = '404?!?!?';
@@ -134,9 +140,6 @@
                     badgesElement.style.display = 'none';
                     disallowedElement.style.display = 'block';
                 } else {
-                    nameElement.textContent = name;
-                    document.getElementById('title').textContent = `${name} - Path Catcher`;
-
                     // Show Verified silly badge if the name is in the approved list
                     if (approvedUsers.includes(name.toLowerCase())) {
                         verifiedBadge.style.display = 'inline-flex';
