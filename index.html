@@ -114,17 +114,16 @@
                 <a href="https://discord.gg/ntts" target="_blank"><img src="/public/img/ntts.png" alt="NTTS Staff Icon" width="50" height="50"></a>
                 <span class="tooltip">NTTS Staff</span>
             </div>
-        </div>
         <p id="disallowed" style="display:none;">Uh- you aren't looking for this page, right?!?!?</p>
     </div>
     
     <script>
         // List of disallowed domains
-        const disallowedDomains = ['nigger', 'nig', 'faggot', 'tranny', 'fag', 'fagg', 'nigga', 'niga' 'negro']; // Pages that return red text
+        const disallowedDomains = ['nigger', 'nig', 'faggot', 'tranny', 'fag', 'fagg', 'nigga', 'niga', 'negro']; // Pages that return red text
         
         // BADGE CONFIG
         const approvedUsers = ['795', 'mint', 'energized', 'immfi', 'salem', 'mero']; // Pages with ✅ badge
-        const partnerNames = [''] // Pages with partner badge
+        const partnerNames = ['']; // Pages with partner badge
         const bannedNames = ['']; // Pages with 🚫 badge
         const vipNames = ['']; // Pages with VIP badge
         const leaderNames = ['robbie'];
@@ -164,6 +163,7 @@
         // SUPER SPECIAL BADGES
         const nttsStaffBadge = document.getElementById('ntts_staff');
 
+        // Set the name in the name element
         nameElement.textContent = name;
         
         // Check if the name is in the disallowed list
@@ -173,7 +173,6 @@
             badgesElement.style.display = 'none';
             disallowedElement.style.display = 'block';
         } else {
-            nameElement.textContent = name;
             document.getElementById('title').textContent = `${name} - SillySite`;
 
             // Show Verified silly badge if the name is in the approved list
