@@ -106,23 +106,28 @@
                 <img src="/public/img/premium.png" alt="Premium Icon" width="50" height="50">
                 <span class="tooltip">Premium User</span>
             </div>
+            <div id="omegasilly" class="badge" style="display:none;">
+                <img src="/public/img/omegasilly.png" alt="Premium Icon" width="50" height="50">
+                <span class="tooltip">Omega Silly</span>
+            </div>
         </div>
         <p id="disallowed" style="display:none;">Uh- you aren't looking for this page, right?!?!?</p>
     </div>
     
     <script>
         // List of disallowed domains
-        const disallowedDomains = ['nigger', 'nigga', 'nig', 'faggot', 'fag', 'fagg', 'tranny']; // Pages that return red text
+        const disallowedDomains = ['']; // Pages that return red text
         
         // BADGE CONFIG
-        const approvedUsers = ['sem']; // Pages with ✅ badge
+        const approvedUsers = ['795']; // Pages with ✅ badge
         const partnerNames = [''] // Pages with partner badge
         const bannedNames = ['zayne', 'zaynedrift']; // Pages with 🚫 badge
-        const vipNames = ['795', 'Charlie']; // Pages with VIP badge
+        const vipNames = ['795']; // Pages with VIP badge
         const leaderNames = ['robbie'];
         const wrenchNames = ['robbie'];
         const bugHunters = [''];
-        const premiumUsers = [''];
+        const premiumUsers = ['robbie'];
+        const omegaSillyPeople = ['sem', 'semdepem', 'sem_de_pem'];
         
         // Extract the NAME from the URL path and decode it
         const pathSegments = window.location.pathname.split('/').filter(segment => segment);
@@ -149,6 +154,7 @@
         const vipBadge = document.getElementById('vip');
         const hunterBadge = document.getElementById('bughunter');
         const premiumBadge = document.getElementById('premium');
+        const omegaSillyBadge = document.getElementById('omegasilly');
 
         // Check if the name is in the disallowed list
         if (disallowedDomains.includes(name.toLowerCase())) {
@@ -158,7 +164,7 @@
             disallowedElement.style.display = 'block';
         } else {
             nameElement.textContent = name;
-            document.getElementById('title').textContent = `${name} - SillySite`;
+            document.getElementById('title').textContent = `${name} - Path Catcher`;
 
             // Show Verified silly badge if the name is in the approved list
             if (approvedUsers.includes(name.toLowerCase())) {
@@ -188,6 +194,10 @@
 
             if (premiumUsers.includes(name.toLowerCase())) {
                 premiumBadge.style.display = 'inline-flex';
+            }
+
+            if (omegaSillyPeople.includes(name.toLowerCase())) {
+                omegaSillyBadge.style.display = 'inline-flex';
             }
 
             // Check if the name is in the banned list
