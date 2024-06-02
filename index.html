@@ -72,7 +72,7 @@
 </head>
 <body>
     <div id="content">
-        <h1 id="name">${name}</h1>
+        <h1 id="name">Loading...</h1>
         <div id="badges">
             <div id="verified" class="badge" style="display:none;">
                 <a href="https://discord.gg/yQwdYzDj6d" target="_blank"><img src="/public/img/verified.png" alt="Verified Icon" width="50" height="50"></a>
@@ -165,6 +165,7 @@
         const nttsStaffBadge = document.getElementById('ntts_staff');
 
         nameElement.textContent = name;
+        
         // Check if the name is in the disallowed list
         if (disallowedDomains.includes(name.toLowerCase())) {
             document.getElementById('title').textContent = '404?!?!?';
