@@ -164,6 +164,7 @@
         // SUPER SPECIAL BADGES
         const nttsStaffBadge = document.getElementById('ntts_staff');
 
+        nameElement.textContent = name;
         // Check if the name is in the disallowed list
         if (disallowedDomains.includes(name.toLowerCase())) {
             document.getElementById('title').textContent = '404?!?!?';
