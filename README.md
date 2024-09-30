@@ -1,6 +1,4 @@
 # 👋 Hey there!
-I'm Robin, better known as Robbie (or Robskan), a 20-year-old guy from The Netherlands. You can learn more about me at [yoursit.ee/rob](https://yoursit.ee/rob)
-[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=y13ofxav44t9v5f39xh4s5pi6&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false)](https://yoursit.ee/rob)
+I'm Robin, better known as Robbie (or Robskan), a 20-year-old guy from The Netherlands. You can learn more about me at [yoursit.ee/rob](https://yoursit.ee/rob). I'm ![status](https://api.statusbadges.me/badge/status/791957021728702464) on Discord.
 
-![](https://komarev.com/ghpvc/?username=Robskan)
-![status](https://api.statusbadges.me/badge/status/791957021728702464) 
+![](https://komarev.com/ghpvc/?username=Robskan) 🤑
