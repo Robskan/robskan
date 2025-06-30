@@ -1,10 +1,14 @@
 # 👋 Hey there!
 I'm Robin, better known as Robbie (or Robskan) from The Netherlands. You can learn more about me at [https://yoursit.ee/rob](https://robs.one/github).
 
-![](https://komarev.com/ghpvc/?username=Robskan) 🤑
+![](https://komarev.com/ghpvc/?username=Robskan)
+
 ![status](https://api.statusbadges.me/badge/status/791957021728702464)
+
 ![playing](https://api.statusbadges.me/badge/playing/791957021728702464)
+
 ![vscode](https://api.statusbadges.me/badge/vscode/791957021728702464)
+
 [![spotify](https://api.statusbadges.me/badge/spotify/791957021728702464)](https://api.statusbadges.me/openspotify/791957021728702464)
 
 
